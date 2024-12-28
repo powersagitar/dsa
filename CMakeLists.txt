@@ -13,7 +13,7 @@ add_library(graph SHARED)
 
 target_sources(
     graph PRIVATE
-    src/graph.cc
+    src/dsa/graph.cc
 )
 
 add_subdirectory(tests)
