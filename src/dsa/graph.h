@@ -1,5 +1,5 @@
-#ifndef GRAPH_H_
-#define GRAPH_H_
+#ifndef DSA_GRAPH_H_
+#define DSA_GRAPH_H_
 
 #include <cstddef>
 #include <initializer_list>
@@ -74,4 +74,4 @@ class UndirectedGraph final {
 
 }  // namespace dsa
 
-#endif  // GRAPH_H_
+#endif  // DSA_GRAPH_H_

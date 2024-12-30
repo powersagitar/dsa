@@ -9,11 +9,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include_directories(src)
 
-add_library(graph SHARED)
+set(SRC_DIR "src/dsa")
 
-target_sources(
-    graph PRIVATE
-    src/dsa/graph.cc
+add_library(
+    graph SHARED
+    ${SRC_DIR}/graph.cc
+)
+
+add_library(
+    trie SHARED
+    ${SRC_DIR}/trie.cc
 )
 
 add_subdirectory(tests)

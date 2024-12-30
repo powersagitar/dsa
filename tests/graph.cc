@@ -3,29 +3,6 @@
 
 #include <vector>
 
-namespace {
-
-template <typename T>
-void EXPECT_VEC_EQ(const std::vector<T> &vec_a, const std::vector<T> &vec_b) {
-  EXPECT_EQ(vec_a.size(), vec_b.size());
-
-  for (size_t i = 0; i < vec_a.size(); ++i) {
-    EXPECT_EQ(vec_a[i], vec_b[i]);
-  }
-}
-
-template <typename T>
-void EXPECT_2D_VEC_EQ(const std::vector<std::vector<T>> &vec_a,
-                      const std::vector<std::vector<T>> &vec_b) {
-  EXPECT_EQ(vec_a.size(), vec_b.size());
-
-  for (size_t i = 0; i < vec_a.size(); ++i) {
-    EXPECT_VEC_EQ(vec_a[i], vec_b[i]);
-  }
-}
-
-}  // namespace
-
 TEST(Graph, EmptyGraph) {
   dsa::UndirectedGraph<int> graph;
   EXPECT_EQ(graph.Size(), 0);
@@ -36,8 +13,8 @@ TEST(Graph, EmptyGraph) {
   auto vertices = graph.vertices();
   auto adj_matrix = graph.adj_matrix();
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 }
 
 TEST(Graph, WithInitializer1) {
@@ -54,8 +31,8 @@ TEST(Graph, WithInitializer1) {
   auto vertices = graph.vertices();
   auto adj_matrix = graph.adj_matrix();
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 
   graph.AddEdge(0, 1);
   graph.AddEdge(1, 2);
@@ -68,8 +45,8 @@ TEST(Graph, WithInitializer1) {
   expected_adj_matrix[1][2] = true;
   expected_adj_matrix[2][1] = true;
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 
   graph.RemoveEdge(1, 0);
   graph.RemoveEdge(2, 1);
@@ -82,8 +59,8 @@ TEST(Graph, WithInitializer1) {
   expected_adj_matrix[1][2] = false;
   expected_adj_matrix[2][1] = false;
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 }
 
 TEST(Graph, WithInitializer2) {
@@ -102,8 +79,8 @@ TEST(Graph, WithInitializer2) {
   auto vertices = graph.vertices();
   auto adj_matrix = graph.adj_matrix();
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 
   graph.AddEdge(0, 1);
   graph.AddEdge(1, 2);
@@ -116,8 +93,8 @@ TEST(Graph, WithInitializer2) {
   expected_adj_matrix[1][2] = true;
   expected_adj_matrix[2][1] = true;
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 
   graph.RemoveEdge(1, 0);
   graph.RemoveEdge(2, 1);
@@ -130,6 +107,6 @@ TEST(Graph, WithInitializer2) {
   expected_adj_matrix[1][2] = false;
   expected_adj_matrix[2][1] = false;
 
-  EXPECT_VEC_EQ(vertices, expected_vertices);
-  EXPECT_2D_VEC_EQ(adj_matrix, expected_adj_matrix);
+  EXPECT_EQ(vertices, expected_vertices);
+  EXPECT_EQ(adj_matrix, expected_adj_matrix);
 }

@@ -10,6 +10,8 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+include(GoogleTest)
+
 add_executable(
     graph-tests
     graph.cc
@@ -21,6 +23,17 @@ target_link_libraries(
     GTest::gtest_main
 )
 
-
-include(GoogleTest)
 gtest_discover_tests(graph-tests)
+
+add_executable(
+    trie-tests
+    trie.cc
+)
+
+target_link_libraries(
+    trie-tests
+    trie
+    GTest::gtest_main
+)
+
+gtest_discover_tests(trie-tests)
