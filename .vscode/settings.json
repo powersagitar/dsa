@@ -1,3 +1,12 @@
 {
-  "cSpell.words": ["Clangd", "ctest", "googletest", "gtest", "NOLINTNEXTLINE"]
+  "cSpell.words": [
+    "Clangd",
+    "ctest",
+    "genhtml",
+    "googletest",
+    "gtest",
+    "NOLINTNEXTLINE",
+    "realpath",
+    "STREQUAL"
+  ]
 }
